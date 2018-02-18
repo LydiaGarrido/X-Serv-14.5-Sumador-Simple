@@ -38,15 +38,13 @@ try:
         request = str(recvSocket.recv(2048), 'utf-8')
         resource = request.split()[1]
         print(resource)
-        
-               
         try:
             _, operando1, operacion, operando2 = resource.split('/')
             operando1 = float(operando1)
             operando2 = float(operando2)
             solucion = calculadora.funciones[operacion](operando1, operando2)
-            respuesta = ("El resultado de la " +operacion+ " de " +str(operando1)+ 
-                        " y " +str(operando2)+ " es: " +str(solucion))
+            respuesta = ("El resultado de la " + operacion + " de " + str(operando1) +
+                        " y " + str(operando2) + " es: " + str(solucion))
         except ValueError:
             respuesta = "No estan permitidos tipos que no sean numericos y debe ser /operando1/operacion/operando2"
         except KeyError:
